@@ -1,0 +1,40 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/kylestewart/Projects/HappyConversations/MessageService/Sources/MessageService/MessageService.swift",
+      "line": 4,
+      "symbol": "MessageService",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kylestewart/Projects/HappyConversations/MessageService/Sources/MessageService/MessageService.swift",
+      "line": 6,
+      "symbol": "MessageService.MessagesResult",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kylestewart/Projects/HappyConversations/MessageService/Sources/MessageService/MessageService.swift",
+      "line": 10,
+      "symbol": "MessageService.DEFAULT_BASE_URL",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kylestewart/Projects/HappyConversations/MessageService/Sources/MessageService/MessageService.swift",
+      "line": 15,
+      "symbol": "MessageService.init(baseURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kylestewart/Projects/HappyConversations/MessageService/Sources/MessageService/MessageService.swift",
+      "line": 34,
+      "symbol": "MessageService.post()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/kylestewart/Projects/HappyConversations/MessageService"
+}

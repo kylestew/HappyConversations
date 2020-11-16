@@ -8,7 +8,7 @@ public struct MessageService {
     }
 
     public static let DEFAULT_BASE_URL = URL(string: "https://abraxvasbh.execute-api.us-east-2.amazonaws.com/proto")!
-    private let ENDPOINT_MESSAGES = "/messages"
+    private let ENDPOINT_MESSAGES = "/messagesCAT"
 
     let baseURL: URL
 
@@ -16,6 +16,16 @@ public struct MessageService {
         self.baseURL = baseURL
     }
 
+    /**
+     Get all messages from API.
+
+     - Parameters:
+     - url: endpoint and query string params
+     - completion: returns an object of type `T` if successful, doesn't return in case of error.
+
+     - Returns:
+     - cancellable handle to terminate request
+     */
     public func fetch(completion: @escaping (MessagesResult) -> ()) -> AnyCancellable {
         let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
         return performRequest(url, body: nil, completion: completion)
