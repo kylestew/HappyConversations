@@ -57,8 +57,7 @@ final class MessageServiceTests: XCTestCase {
             subject: "pets",
             message: "My dog, Harlowe, is the goodest boy.")
 
-//        let replaySession = Session(cassetteName: "Fixtures/post_message", testBundle: Bundle.module)
-        let replaySession = URLSession.shared
+        let replaySession = Session(cassetteName: "Fixtures/post_message", testBundle: Bundle.module)
         let service = MessageService(session: replaySession)
 
         requiredHandle = service.post(message) { result in
@@ -79,10 +78,33 @@ final class MessageServiceTests: XCTestCase {
     }
 
     func testFetchSingleMessage() {
-        // TODO: will need to use replay lib to fake response from server
+        let expectation = XCTestExpectation(description: "Fetch messages from server for a specific user")
+
+        let username = "kyle"
+
+        let replaySession = Session(cassetteName: "Fixtures/fetch_user_messages", testBundle: Bundle.module)
+        let service = MessageService(session: replaySession)
+        requiredHandle = service.fetch(username: username) { result in
+            switch result {
+            case .success(let response):
+                // should response with 200 OK
+                XCTAssertEqual(response.statusCode, 200)
+
+            case .failure(let error):
+                // possibly a coding error
+                XCTFail(error.localizedDescription)
+            }
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 10)
     }
 
     static var allTests = [
         ("testFetchMessages", testFetchMessages),
+        ("testFetchErrorCase", testFetchErrorCase),
+        ("testPostMessage", testPostMessage),
+        ("testFetchSingleMessage", testFetchSingleMessage),
     ]
 }

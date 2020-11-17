@@ -4,7 +4,6 @@ import Combine
 public struct MessageService {
 
     public static let DEFAULT_BASE_URL = URL(string: "https://abraxvasbh.execute-api.us-east-2.amazonaws.com/proto")!
-
     private let ENDPOINT_MESSAGES = "/messages"
 
     private let baseURL: URL
@@ -26,18 +25,23 @@ public struct MessageService {
     }
 
     /**
-     Get all messages from API.
+     Get messages from API.
 
      - Parameters:
+     - username: (optional) fetches only messages for specific user
      - completion: emits `MessageResult` if successful, `ServiceError` if not
 
      - Returns:
      - cancellable handle to terminate request
      */
-    public func fetch(completion: @escaping (Result<MessagesResult, MessageService.ServiceError>) -> ()) -> AnyCancellable {
-        let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
+    public func fetch(username: String? = nil, completion: @escaping (Result<MessagesResult, MessageService.ServiceError>) -> ()) -> AnyCancellable {
+        var url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
+        if let username = username {
+            url.appendPathComponent("/\(username)")
+        }
         return performRequest(url, completion: completion)
     }
+
     /**
      Post a message to the API from the given `Message` object.
 
@@ -103,4 +107,3 @@ public struct MessageService {
             })
     }
 }
-

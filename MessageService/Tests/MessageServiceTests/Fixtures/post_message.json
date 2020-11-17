@@ -1,0 +1,38 @@
+{
+  "interactions" : [
+    {
+      "recorded_at" : 1605592744.8909578,
+      "request" : {
+        "url" : "https:\/\/abraxvasbh.execute-api.us-east-2.amazonaws.com\/proto\/messages",
+        "method" : "POST",
+        "body" : {
+          "operation" : "add_message",
+          "message" : "My dog, Harlowe, is the goodest boy.",
+          "subject" : "pets",
+          "user" : "kyle"
+        },
+        "headers" : {
+          "Content-Type" : "application\/json; charset=utf-8",
+          "Accept" : "application\/json; charset=utf-8"
+        }
+      },
+      "response" : {
+        "body" : {
+          "statusCode" : 200,
+          "body" : "{\"user\": \"kyle\", \"subject\": \"pets\", \"message\": \"My dog, Harlowe, is the goodest boy.\"}"
+        },
+        "status" : 200,
+        "headers" : {
+          "x-amzn-trace-id" : "Root=1-5fb366aa-3486ba480299af3648aae4b2;Sampled=0",
+          "x-amzn-requestid" : "57c9a4bf-06a5-4548-88e4-76af6b7e7e08",
+          "Content-Type" : "application\/json",
+          "Date" : "Tue, 17 Nov 2020 05:59:06 GMT",
+          "Content-Length" : "129",
+          "x-amz-apigw-id" : "WIz6qGU5iYcF8VA="
+        },
+        "url" : "https:\/\/abraxvasbh.execute-api.us-east-2.amazonaws.com\/proto\/messages"
+      }
+    }
+  ],
+  "name" : "post_message"
+}
