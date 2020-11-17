@@ -9,13 +9,20 @@ final class MessageServiceTests: XCTestCase {
     func testFetchMessages() {
         let expectation = XCTestExpectation(description: "Fetch messages from server")
 
+        let expectedMessage = MessageService.Message(user: "kyle",
+                                                     subject: "pets",
+                                                     message: "My dog, Harlowe, is the goodest boy.")
+
         let replaySession = Session(cassetteName: "Fixtures/fetch_messages", testBundle: Bundle.module)
         let service = MessageService(session: replaySession)
         requiredHandle = service.fetch { result in
             switch result {
             case .success(let response):
-                // should response with 200 OK
+                // should respond with 200 OK
                 XCTAssertEqual(response.statusCode, 200)
+
+                // should contain expected message
+                XCTAssertTrue(response.messages.contains(expectedMessage))
 
             case .failure(let error):
                 // possibly a coding error
@@ -81,6 +88,9 @@ final class MessageServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Fetch messages from server for a specific user")
 
         let username = "kyle"
+        let expectedMessage = MessageService.Message(user: "kyle",
+                                                     subject: "pets",
+                                                     message: "My dog, Harlowe, is the goodest boy.")
 
         let replaySession = Session(cassetteName: "Fixtures/fetch_user_messages", testBundle: Bundle.module)
         let service = MessageService(session: replaySession)
@@ -89,6 +99,9 @@ final class MessageServiceTests: XCTestCase {
             case .success(let response):
                 // should response with 200 OK
                 XCTAssertEqual(response.statusCode, 200)
+
+                // should respond with specific message
+                XCTAssertTrue(response.messages.contains(expectedMessage))
 
             case .failure(let error):
                 // possibly a coding error

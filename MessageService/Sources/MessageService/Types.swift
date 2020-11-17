@@ -22,6 +22,6 @@ extension MessageService {
     }
 
     public struct StatusOnlyResult: Codable {
-        let statusCode: Int
+        public let statusCode: Int
     }
 }
