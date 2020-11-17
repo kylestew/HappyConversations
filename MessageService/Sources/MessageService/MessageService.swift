@@ -49,13 +49,16 @@ public struct MessageService {
 
      */
     public func post(_ message: Message, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask? {
-//        do {
-//            let jsonData = try JSONEncoder().encode(message.asCreateOp())
-//            let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
-//            return performRequest(url, body: jsonData, completion: completion)
-//        } catch (let error) {
-//            completion(.failure(.generalError(error)))
-//        }
+        do {
+            let json = try! message.toJSON().merged(with: [
+                "operation": "add_message"
+            ])
+            let rawData = try json.rawData()
+            let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
+            return performRequest(url, body: rawData, completion: completion)
+        } catch (let error) {
+            completion(.failure(.generalError(error)))
+        }
         return nil
     }
 
@@ -71,7 +74,11 @@ public struct MessageService {
      - Returns:
      - cancellable handle to terminate request
      */
-    private func performRequest(_ url: URL, body: Data? = nil, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask {
+    private func performRequest(_ url: URL,
+                                body: Data? = nil,
+                                completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ())
+    -> URLSessionDataTask {
+
         var request = URLRequest.init(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")

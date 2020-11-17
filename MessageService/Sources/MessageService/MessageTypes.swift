@@ -28,19 +28,15 @@ extension MessageService {
         public let user: String
         public let subject: String
         public let message: String
-//        public let operation: String?
 
-//        public init(user: String, subject: String, message: String, operation: String? = nil) {
-//            self.user = user
-//            self.subject = subject
-//            self.message = message
-////            self.operation = operation
-//        }
-
-        // TODO: extend JSON object
-//        public func asCreateOp() -> Message {
-//            return Message.init(user: self.user, subject: self.subject, message: self.message, operation: "add_message")
-//        }
+        func toJSON() -> JSON {
+            let json: JSON = [
+                "user": user,
+                "subject": subject,
+                "message": message,
+            ]
+            return json
+        }
     }
 
 }
