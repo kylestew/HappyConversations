@@ -1,20 +1,28 @@
 import Foundation
 import SwiftyJSON
 
+/**
+ # MessageService
+
+ Simple service to interact with message REST API. The service takes care of preparing request and returning responses as immutable Swift `Message` objects.
+
+ */
 public struct MessageService {
 
+    /// Main URL for service (can override)
     public static let DEFAULT_BASE_URL = URL(string: "https://abraxvasbh.execute-api.us-east-2.amazonaws.com/proto")!
+
     private let ENDPOINT_MESSAGES = "/messages"
 
     private let baseURL: URL
     private let session: URLSession
 
     /**
-     ???
+     Initializer provides optional overrides. Can be used to provide a staging instance or inject test dependencies.
 
      - Parameters:
-     - baseURL: (optional) set to override default service URL
-     - session: (optional) exposed for using in testing via dependency injection
+       - baseURL: (optional) set to override default service URL
+       - session: (optional) exposed for using in testing via dependency injection
      */
     public init(
         baseURL: URL = MessageService.DEFAULT_BASE_URL,
@@ -26,13 +34,13 @@ public struct MessageService {
 
     /**
      Get messages from API.
+     This function can be used to fetch all messages or messages for a single user.
 
      - Parameters:
-     - username: (optional) fetches only messages for specific user
-     - completion: emits `MessageResult` if successful, `ServiceError` if not
+       - username: (optional) fetches only messages for specific user
+       - completion: emits `MessageResponseData` if successful, `ServiceError` otherwise
 
-     - Returns:
-     - cancellable handle to terminate request
+     - Returns: cancellable handle to terminate request
      */
     public func fetch(username: String? = nil, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask {
         var url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
@@ -45,14 +53,15 @@ public struct MessageService {
     /**
      Post a message to the API from the given `Message` object.
 
-     // TODO:...
+     - Parameters:
+       - message: `Message` object to be posted to the message service
+       - completion: emits `MessageResponseData` if successful, `ServiceError` otherwise
 
+     - Returns: cancellable handle to terminate request
      */
     public func post(_ message: Message, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask? {
         do {
-            let json = try! message.toJSON().merged(with: [
-                "operation": "add_message"
-            ])
+            let json = try! message.toJSON().merged(with: Message.addMessageOperation)
             let rawData = try json.rawData()
             let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
             return performRequest(url, body: rawData, completion: completion)
@@ -67,12 +76,11 @@ public struct MessageService {
      We are assuming standard JSON encoded responses.
 
      - Parameters:
-     - url: endpoint and query string params
-     - body: treated as JSON data in POST requests
-     - completion: returns an object of type `T` if successful, returns `ServiceError` if not
+       - url: endpoint and query string params
+       - body: treated as JSON data in POST requests
+       - completion: returns an object of type `T` if successful, returns `ServiceError` if not
 
-     - Returns:
-     - cancellable handle to terminate request
+     - Returns: cancellable handle to terminate request
      */
     private func performRequest(_ url: URL,
                                 body: Data? = nil,
