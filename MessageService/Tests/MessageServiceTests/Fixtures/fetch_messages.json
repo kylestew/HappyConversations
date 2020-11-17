@@ -1,0 +1,32 @@
+{
+  "interactions" : [
+    {
+      "response" : {
+        "body" : {
+          "statusCode" : 200,
+          "body" : "{}"
+        },
+        "url" : "https:\/\/abraxvasbh.execute-api.us-east-2.amazonaws.com\/proto\/messages",
+        "headers" : {
+          "x-amzn-requestid" : "b71c9ca7-5d16-4b59-8cc7-21897bdf8772",
+          "Content-Length" : "33",
+          "x-amzn-trace-id" : "Root=1-5fb35110-785c05190b4b2375539fb6b4;Sampled=0",
+          "Date" : "Tue, 17 Nov 2020 04:26:56 GMT",
+          "x-amz-apigw-id" : "WImapGX3iYcFtwQ=",
+          "Content-Type" : "application\/json"
+        },
+        "status" : 200
+      },
+      "request" : {
+        "headers" : {
+          "Content-Type" : "application\/json; charset=utf-8",
+          "Accept" : "application\/json; charset=utf-8"
+        },
+        "method" : "GET",
+        "url" : "https:\/\/abraxvasbh.execute-api.us-east-2.amazonaws.com\/proto\/messages"
+      },
+      "recorded_at" : 1605587215.2358241
+    }
+  ],
+  "name" : "fetch_messages"
+}
