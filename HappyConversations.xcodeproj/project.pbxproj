@@ -46,6 +46,7 @@
 		FFACBA17256306BA00D10BB8 /* HappyConversationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyConversationsUITests.swift; sourceTree = "<group>"; };
 		FFACBA19256306BA00D10BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFACBA28256308B500D10BB8 /* MessageService */ = {isa = PBXFileReference; lastKnownFileType = text; path = MessageService; sourceTree = SOURCE_ROOT; };
+		FFD1A2B62563B443000EF0A9 /* MessagePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MessagePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 		FFACB9EE256306B900D10BB8 = {
 			isa = PBXGroup;
 			children = (
+				FFD1A2B62563B443000EF0A9 /* MessagePlayground.playground */,
 				FFACB9F9256306B900D10BB8 /* HappyConversations */,
 				FFACBA0B256306BA00D10BB8 /* HappyConversationsTests */,
 				FFACBA16256306BA00D10BB8 /* HappyConversationsUITests */,
