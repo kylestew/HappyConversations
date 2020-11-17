@@ -7,6 +7,7 @@ API](https://abraxvasbh.execute-api.us-east-2.amazonaws.com/proto/messages).
 ## Learn More!
 
 [Documentation and design thinking](MessageService/docs)
+
 [Interactive Playground!](MessagePlayground.playground)
 
 ## Future Plans
