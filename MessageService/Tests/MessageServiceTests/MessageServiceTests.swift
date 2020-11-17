@@ -50,9 +50,32 @@ final class MessageServiceTests: XCTestCase {
     }
 
     func testPostMessage() {
-        // GIVEN:
-        // WHEN: I post message
-        // THEN: Success status code
+        let expectation = XCTestExpectation(description: "Should post message data to server")
+
+        let message = MessageService.Message.init(
+            user: "kyle",
+            subject: "pets",
+            message: "My dog, Harlowe, is the goodest boy.")
+
+//        let replaySession = Session(cassetteName: "Fixtures/post_message", testBundle: Bundle.module)
+        let replaySession = URLSession.shared
+        let service = MessageService(session: replaySession)
+
+        requiredHandle = service.post(message) { result in
+            switch result {
+            case .success(let response):
+                // should response with 200 OK
+                XCTAssertEqual(response.statusCode, 200)
+
+            case .failure(let error):
+                // possibly a coding error
+                XCTFail(error.localizedDescription)
+            }
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 10)
     }
 
     func testFetchSingleMessage() {

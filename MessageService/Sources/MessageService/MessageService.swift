@@ -36,7 +36,7 @@ public struct MessageService {
      */
     public func fetch(completion: @escaping (Result<MessagesResult, MessageService.ServiceError>) -> ()) -> AnyCancellable {
         let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
-        return performRequest(url, body: nil, completion: completion)
+        return performRequest(url, completion: completion)
     }
     /**
      Post a message to the API from the given `Message` object.
@@ -44,8 +44,15 @@ public struct MessageService {
      // TODO:...
 
      */
-    public func post() {
-        // TODO: add "operation": "add_message" to message JSON before flight
+    public func post(_ message: Message, completion: @escaping (Result<MessagesResult, MessageService.ServiceError>) -> ()) -> AnyCancellable? {
+        do {
+            let jsonData = try JSONEncoder().encode(message.asCreateOp())
+            let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
+            return performRequest(url, body: jsonData, completion: completion)
+        } catch (let error) {
+            completion(.failure(.generalError(error)))
+        }
+        return nil
     }
 
     /**
@@ -60,7 +67,7 @@ public struct MessageService {
      - Returns:
      - cancellable handle to terminate request
      */
-    private func performRequest<T: Codable>(_ url: URL, body: Data?, completion: @escaping (Result<T, MessageService.ServiceError>) -> ()) -> AnyCancellable {
+    private func performRequest<T: Codable>(_ url: URL, body: Data? = nil, completion: @escaping (Result<T, MessageService.ServiceError>) -> ()) -> AnyCancellable {
         var request = URLRequest.init(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
