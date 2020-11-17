@@ -1,5 +1,5 @@
 import Foundation
-import Combine
+import SwiftyJSON
 
 public struct MessageService {
 
@@ -34,7 +34,7 @@ public struct MessageService {
      - Returns:
      - cancellable handle to terminate request
      */
-    public func fetch(username: String? = nil, completion: @escaping (Result<MessagesResult, MessageService.ServiceError>) -> ()) -> AnyCancellable {
+    public func fetch(username: String? = nil, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask {
         var url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
         if let username = username {
             url.appendPathComponent("/\(username)")
@@ -48,14 +48,14 @@ public struct MessageService {
      // TODO:...
 
      */
-    public func post(_ message: Message, completion: @escaping (Result<MessagesResult, MessageService.ServiceError>) -> ()) -> AnyCancellable? {
-        do {
-            let jsonData = try JSONEncoder().encode(message.asCreateOp())
-            let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
-            return performRequest(url, body: jsonData, completion: completion)
-        } catch (let error) {
-            completion(.failure(.generalError(error)))
-        }
+    public func post(_ message: Message, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask? {
+//        do {
+//            let jsonData = try JSONEncoder().encode(message.asCreateOp())
+//            let url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
+//            return performRequest(url, body: jsonData, completion: completion)
+//        } catch (let error) {
+//            completion(.failure(.generalError(error)))
+//        }
         return nil
     }
 
@@ -71,7 +71,7 @@ public struct MessageService {
      - Returns:
      - cancellable handle to terminate request
      */
-    private func performRequest<T: Codable>(_ url: URL, body: Data? = nil, completion: @escaping (Result<T, MessageService.ServiceError>) -> ()) -> AnyCancellable {
+    private func performRequest(_ url: URL, body: Data? = nil, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask {
         var request = URLRequest.init(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
@@ -81,29 +81,43 @@ public struct MessageService {
             request.httpMethod = "POST"
         }
 
-        return session.dataTaskPublisher(for: request)
-            .tryMap { output in
-                guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
-                    throw ServiceError.invalidStatusCode
-                }
-                return output.data
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // check for request error
+            if let error = error {
+                completion(.failure(.generalError(error)))
+                return
             }
-            .decode(type: T.self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
-            .sink(receiveCompletion: { result in
-                switch result {
-                case .finished:
-                    // handled by completion in recieveValue
-                    break
-                case .failure(let error):
-                    if let serviceError = error as? ServiceError {
-                        completion(.failure(serviceError))
-                    } else {
-                        completion(.failure(.generalError(error)))
-                    }
-                }
-            }, receiveValue: { value in
-                completion(.success(value))
-            })
+
+            // check response headers
+            guard let response = response as? HTTPURLResponse,
+                  200...299 ~= response.statusCode else {
+                completion(.failure(.invalidStatusCode))
+                return
+            }
+
+            // did we receive data?
+            guard let data = data else {
+                completion(.failure(.noDataReturned))
+                return
+            }
+
+            // attempt to parse body out of response data
+            do {
+                // all critical JSON decoding happens (and traps exceptions) here
+                let json = try JSON(data: data)
+
+                let statusCode = json["statusCode"].intValue
+                // need to additionally decode the body data (string -> JSON)
+                let body = JSON.init(parseJSON: json["body"].stringValue)
+
+                let messageResponse = MessageResponseData(statusCode: statusCode, body: body)
+                completion(.success(messageResponse))
+            } catch (let error) {
+                completion(.failure(.generalError(error)))
+            }
+        }
+        task.resume()
+
+        return task
     }
 }

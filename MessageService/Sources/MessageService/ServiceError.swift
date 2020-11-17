@@ -7,11 +7,14 @@ extension MessageService {
      */
     public enum ServiceError: Error, Equatable {
         case invalidStatusCode
+        case noDataReturned
         case generalError(Error)
 
         public static func == (lhs: MessageService.ServiceError, rhs: MessageService.ServiceError) -> Bool {
             switch (lhs, rhs) {
             case (.invalidStatusCode, .invalidStatusCode):
+                return true
+            case (.noDataReturned, .noDataReturned):
                 return true
             case (.generalError(let errA), .generalError(let errB)):
                 return (errA as NSError) == (errB as NSError)
@@ -21,7 +24,4 @@ extension MessageService {
         }
     }
 
-    public struct StatusOnlyResult: Codable {
-        public let statusCode: Int
-    }
 }

@@ -13,6 +13,7 @@ let package = Package(
             targets: ["MessageService"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "4.0.0"),
         .package(url: "https://github.com/venmo/DVR", from: "2.0.0"),
     ],
     targets: [
@@ -20,7 +21,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "MessageService",
-            dependencies: []),
+            dependencies: [
+                "SwiftyJSON",
+            ]),
         .testTarget(
             name: "MessageServiceTests",
             dependencies: [
