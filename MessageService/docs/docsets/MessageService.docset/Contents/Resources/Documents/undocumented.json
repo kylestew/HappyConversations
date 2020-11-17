@@ -1,12 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/kylestewart/Projects/HappyConversations/MessageService/Sources/MessageService/MessageTypes.swift",
-      "line": 68,
-      "symbol": "MessageService.Message.init(user:subject:message:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/kylestewart/Projects/HappyConversations/MessageService"
 }
