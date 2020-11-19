@@ -24,6 +24,7 @@ struct AuthView: View {
             }
             .disabled(state.username.isEmpty)
             .font(.title)
+            .foregroundColor(Color("Mint"))
         }
         .padding()
     }

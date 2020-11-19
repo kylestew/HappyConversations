@@ -19,6 +19,7 @@ struct AppView: View {
                 Text("Login")
             }
         }
+        .foregroundColor(Color("Mint"))
     }
 
     var logoutActionSheet: ActionSheet {
@@ -38,22 +39,24 @@ struct AppView: View {
         }) {
             Text("Login to join the conversation")
                 .font(.headline)
-                .padding(20)
+                .padding(30)
+                .foregroundColor(Color("Yellow"))
         }
         .frame(maxWidth: .infinity)
-        .background(Color.init("MintGreen"))
+        .background(Color("Green"))
+        .border(Color("Blue"), width: 8)
     }
 
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-//                MessageListView(state: MessageListState.fake(count: 4))
                 MessageListView(state: MessageListState())
 
                 if let auth = appState.auth {
                     PostingView(state: PostingState(auth: auth))
                 } else {
                     signUpCTA
+                        .padding(0)
                 }
             }
             .navigationBarItems(trailing: profileButton)

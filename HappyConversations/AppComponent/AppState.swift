@@ -6,7 +6,6 @@ final class AppState: ObservableObject {
     @Published private(set) var auth: UserAuth?
 
     init() {
-        self.auth = UserAuth.init(user: "hello")
     }
 
     func login(auth: UserAuth) {

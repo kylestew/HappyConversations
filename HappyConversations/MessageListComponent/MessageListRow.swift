@@ -22,7 +22,9 @@ struct MessageListRow: View {
                     ) {
                         Text(message.user)
                             .font(.subheadline)
+                            .bold()
                     }
+                    .foregroundColor(Color("Mint"))
                 }
                 Spacer()
             }.frame(height: 50)

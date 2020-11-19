@@ -39,7 +39,7 @@ struct MessageListView: View {
                 .navigationBarTitle(Text(navTitle))
 
             }
-            Spacer()
+//            Spacer()
         }
     }
 }
