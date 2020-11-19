@@ -57,6 +57,8 @@ extension MessageService {
      */
     public struct Message: Codable, Equatable {
 
+        /// id: unique object identifier (faked - server doesn't provide this yet)
+        public let id = UUID()
         /// user: Username of the profile that created the message
         public let user: String
         /// subject: Breif explanation and introduction to the following missive

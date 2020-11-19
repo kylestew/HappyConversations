@@ -11,7 +11,7 @@ import SwiftUI
 struct HappyConversationsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView().environmentObject(AppState())
         }
     }
 }

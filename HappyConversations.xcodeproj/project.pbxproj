@@ -3,16 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF364B58256618D800ACBB2B /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B57256618D800ACBB2B /* DataState.swift */; };
+		FF364B6125661A3800ACBB2B /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6025661A3800ACBB2B /* AuthState.swift */; };
+		FF364B6A25661B5100ACBB2B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6925661B5100ACBB2B /* AppState.swift */; };
+		FF364B6F25661B7800ACBB2B /* PostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6E25661B7800ACBB2B /* PostingView.swift */; };
+		FF364B7825662A0E00ACBB2B /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B7725662A0E00ACBB2B /* AuthData.swift */; };
+		FF6ECEC525662E1100307AD8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6ECEC425662E1100307AD8 /* AuthView.swift */; };
 		FFACB9FB256306B900D10BB8 /* HappyConversationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACB9FA256306B900D10BB8 /* HappyConversationsApp.swift */; };
-		FFACB9FD256306B900D10BB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACB9FC256306B900D10BB8 /* ContentView.swift */; };
+		FFACB9FD256306B900D10BB8 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACB9FC256306B900D10BB8 /* AppView.swift */; };
 		FFACB9FF256306BA00D10BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFACB9FE256306BA00D10BB8 /* Assets.xcassets */; };
 		FFACBA02256306BA00D10BB8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFACBA01256306BA00D10BB8 /* Preview Assets.xcassets */; };
 		FFACBA0D256306BA00D10BB8 /* HappyConversationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACBA0C256306BA00D10BB8 /* HappyConversationsTests.swift */; };
 		FFACBA18256306BA00D10BB8 /* HappyConversationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACBA17256306BA00D10BB8 /* HappyConversationsUITests.swift */; };
+		FFDD35292565E73600462FF0 /* MessageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD35282565E73600462FF0 /* MessageListCell.swift */; };
+		FFDD35332565EAA200462FF0 /* MessageService in Frameworks */ = {isa = PBXBuildFile; productRef = FFDD35322565EAA200462FF0 /* MessageService */; };
+		FFDD35382565ECCC00462FF0 /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD35372565ECCC00462FF0 /* MessageListView.swift */; };
+		FFDD35462565EF2A00462FF0 /* MessageListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD35452565EF2A00462FF0 /* MessageListState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF364B57256618D800ACBB2B /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
+		FF364B6025661A3800ACBB2B /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		FF364B6925661B5100ACBB2B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FF364B6E25661B7800ACBB2B /* PostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingView.swift; sourceTree = "<group>"; };
+		FF364B7725662A0E00ACBB2B /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
+		FF6ECEC425662E1100307AD8 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		FFACB9F7256306B900D10BB8 /* HappyConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFACB9FA256306B900D10BB8 /* HappyConversationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyConversationsApp.swift; sourceTree = "<group>"; };
-		FFACB9FC256306B900D10BB8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FFACB9FC256306B900D10BB8 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		FFACB9FE256306BA00D10BB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFACBA01256306BA00D10BB8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFACBA03256306BA00D10BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +63,9 @@
 		FFACBA19256306BA00D10BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFACBA28256308B500D10BB8 /* MessageService */ = {isa = PBXFileReference; lastKnownFileType = text; path = MessageService; sourceTree = SOURCE_ROOT; };
 		FFD1A2B62563B443000EF0A9 /* MessagePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MessagePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		FFDD35282565E73600462FF0 /* MessageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListCell.swift; sourceTree = "<group>"; };
+		FFDD35372565ECCC00462FF0 /* MessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
+		FFDD35452565EF2A00462FF0 /* MessageListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDD35332565EAA200462FF0 /* MessageService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +94,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF364B53256618CE00ACBB2B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FF364B57256618D800ACBB2B /* DataState.swift */,
+				FF364B7725662A0E00ACBB2B /* AuthData.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FF364B5C2566190300ACBB2B /* PostingComponent */ = {
+			isa = PBXGroup;
+			children = (
+				FF364B6E25661B7800ACBB2B /* PostingView.swift */,
+			);
+			path = PostingComponent;
+			sourceTree = "<group>";
+		};
+		FF364B6525661A6100ACBB2B /* AppComponent */ = {
+			isa = PBXGroup;
+			children = (
+				FF364B6925661B5100ACBB2B /* AppState.swift */,
+				FFACB9FC256306B900D10BB8 /* AppView.swift */,
+			);
+			path = AppComponent;
+			sourceTree = "<group>";
+		};
+		FF364B7325661B9600ACBB2B /* AuthComponent */ = {
+			isa = PBXGroup;
+			children = (
+				FF364B6025661A3800ACBB2B /* AuthState.swift */,
+				FF6ECEC425662E1100307AD8 /* AuthView.swift */,
+			);
+			path = AuthComponent;
+			sourceTree = "<group>";
+		};
 		FFACB9EE256306B900D10BB8 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +137,7 @@
 				FFACBA0B256306BA00D10BB8 /* HappyConversationsTests */,
 				FFACBA16256306BA00D10BB8 /* HappyConversationsUITests */,
 				FFACB9F8256306B900D10BB8 /* Products */,
+				FFDD35312565EAA200462FF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				FFACBA28256308B500D10BB8 /* MessageService */,
+				FF364B53256618CE00ACBB2B /* Common */,
+				FF364B6525661A6100ACBB2B /* AppComponent */,
+				FF364B7325661B9600ACBB2B /* AuthComponent */,
+				FFDD35262565E6DF00462FF0 /* MessageListComponent */,
+				FF364B5C2566190300ACBB2B /* PostingComponent */,
 				FFACB9FA256306B900D10BB8 /* HappyConversationsApp.swift */,
-				FFACB9FC256306B900D10BB8 /* ContentView.swift */,
 				FFACB9FE256306BA00D10BB8 /* Assets.xcassets */,
 				FFACBA03256306BA00D10BB8 /* Info.plist */,
 				FFACBA00256306BA00D10BB8 /* Preview Content */,
@@ -134,6 +194,23 @@
 			path = HappyConversationsUITests;
 			sourceTree = "<group>";
 		};
+		FFDD35262565E6DF00462FF0 /* MessageListComponent */ = {
+			isa = PBXGroup;
+			children = (
+				FFDD35452565EF2A00462FF0 /* MessageListState.swift */,
+				FFDD35372565ECCC00462FF0 /* MessageListView.swift */,
+				FFDD35282565E73600462FF0 /* MessageListCell.swift */,
+			);
+			path = MessageListComponent;
+			sourceTree = "<group>";
+		};
+		FFDD35312565EAA200462FF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +227,9 @@
 			dependencies = (
 			);
 			name = HappyConversations;
+			packageProductDependencies = (
+				FFDD35322565EAA200462FF0 /* MessageService */,
+			);
 			productName = HappyConversations;
 			productReference = FFACB9F7256306B900D10BB8 /* HappyConversations.app */;
 			productType = "com.apple.product-type.application";
@@ -263,8 +343,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFACB9FD256306B900D10BB8 /* ContentView.swift in Sources */,
+				FFDD35382565ECCC00462FF0 /* MessageListView.swift in Sources */,
+				FFDD35292565E73600462FF0 /* MessageListCell.swift in Sources */,
+				FFDD35462565EF2A00462FF0 /* MessageListState.swift in Sources */,
+				FF364B6A25661B5100ACBB2B /* AppState.swift in Sources */,
+				FF364B58256618D800ACBB2B /* DataState.swift in Sources */,
+				FF364B6F25661B7800ACBB2B /* PostingView.swift in Sources */,
+				FFACB9FD256306B900D10BB8 /* AppView.swift in Sources */,
+				FF364B7825662A0E00ACBB2B /* AuthData.swift in Sources */,
 				FFACB9FB256306B900D10BB8 /* HappyConversationsApp.swift in Sources */,
+				FF6ECEC525662E1100307AD8 /* AuthView.swift in Sources */,
+				FF364B6125661A3800ACBB2B /* AuthState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +667,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFDD35322565EAA200462FF0 /* MessageService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MessageService;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFACB9EF256306B900D10BB8 /* Project object */;
 }
