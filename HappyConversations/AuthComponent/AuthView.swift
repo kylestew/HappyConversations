@@ -1,5 +1,4 @@
 import SwiftUI
-import MessageService
 
 struct AuthView: View {
 
@@ -8,7 +7,7 @@ struct AuthView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack {
-                
+
             }
         }
         .padding()

@@ -1,6 +1,6 @@
 import Foundation
 
-struct AuthData {
+struct UserAuth {
 
     let user: String
 

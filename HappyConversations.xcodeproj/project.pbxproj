@@ -11,8 +11,9 @@
 		FF364B6125661A3800ACBB2B /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6025661A3800ACBB2B /* AuthState.swift */; };
 		FF364B6A25661B5100ACBB2B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6925661B5100ACBB2B /* AppState.swift */; };
 		FF364B6F25661B7800ACBB2B /* PostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6E25661B7800ACBB2B /* PostingView.swift */; };
-		FF364B7825662A0E00ACBB2B /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B7725662A0E00ACBB2B /* AuthData.swift */; };
+		FF364B7825662A0E00ACBB2B /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B7725662A0E00ACBB2B /* UserAuth.swift */; };
 		FF6ECEC525662E1100307AD8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6ECEC425662E1100307AD8 /* AuthView.swift */; };
+		FF6ECECA256638A300307AD8 /* PostingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6ECEC9256638A300307AD8 /* PostingState.swift */; };
 		FFACB9FB256306B900D10BB8 /* HappyConversationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACB9FA256306B900D10BB8 /* HappyConversationsApp.swift */; };
 		FFACB9FD256306B900D10BB8 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACB9FC256306B900D10BB8 /* AppView.swift */; };
 		FFACB9FF256306BA00D10BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFACB9FE256306BA00D10BB8 /* Assets.xcassets */; };
@@ -47,8 +48,9 @@
 		FF364B6025661A3800ACBB2B /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		FF364B6925661B5100ACBB2B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FF364B6E25661B7800ACBB2B /* PostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingView.swift; sourceTree = "<group>"; };
-		FF364B7725662A0E00ACBB2B /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
+		FF364B7725662A0E00ACBB2B /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		FF6ECEC425662E1100307AD8 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		FF6ECEC9256638A300307AD8 /* PostingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingState.swift; sourceTree = "<group>"; };
 		FFACB9F7256306B900D10BB8 /* HappyConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFACB9FA256306B900D10BB8 /* HappyConversationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyConversationsApp.swift; sourceTree = "<group>"; };
 		FFACB9FC256306B900D10BB8 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -98,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				FF364B57256618D800ACBB2B /* DataState.swift */,
-				FF364B7725662A0E00ACBB2B /* AuthData.swift */,
+				FF364B7725662A0E00ACBB2B /* UserAuth.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -106,6 +108,7 @@
 		FF364B5C2566190300ACBB2B /* PostingComponent */ = {
 			isa = PBXGroup;
 			children = (
+				FF6ECEC9256638A300307AD8 /* PostingState.swift */,
 				FF364B6E25661B7800ACBB2B /* PostingView.swift */,
 			);
 			path = PostingComponent;
@@ -345,12 +348,13 @@
 			files = (
 				FFDD35382565ECCC00462FF0 /* MessageListView.swift in Sources */,
 				FFDD35292565E73600462FF0 /* MessageListCell.swift in Sources */,
+				FF6ECECA256638A300307AD8 /* PostingState.swift in Sources */,
 				FFDD35462565EF2A00462FF0 /* MessageListState.swift in Sources */,
 				FF364B6A25661B5100ACBB2B /* AppState.swift in Sources */,
 				FF364B58256618D800ACBB2B /* DataState.swift in Sources */,
 				FF364B6F25661B7800ACBB2B /* PostingView.swift in Sources */,
 				FFACB9FD256306B900D10BB8 /* AppView.swift in Sources */,
-				FF364B7825662A0E00ACBB2B /* AuthData.swift in Sources */,
+				FF364B7825662A0E00ACBB2B /* UserAuth.swift in Sources */,
 				FFACB9FB256306B900D10BB8 /* HappyConversationsApp.swift in Sources */,
 				FF6ECEC525662E1100307AD8 /* AuthView.swift in Sources */,
 				FF364B6125661A3800ACBB2B /* AuthState.swift in Sources */,

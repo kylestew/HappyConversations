@@ -3,10 +3,10 @@ import Foundation
 final class AppState: ObservableObject {
 
     /// user authorization state, not logged in if nil
-    @Published private(set) var auth: AuthData?
+    @Published private(set) var auth: UserAuth?
 
     init() {
-        self.auth = AuthData.init(user: "hello")
+        self.auth = UserAuth.init(user: "hello")
     }
 
     func logout() {
