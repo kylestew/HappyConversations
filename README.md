@@ -6,9 +6,10 @@ API](https://abraxvasbh.execute-api.us-east-2.amazonaws.com/proto/messages).
 
 ## Learn More!
 
-link to library docs (with design decisions and discussion)
-interacte with service in this Playground!
+[Documentation and design thinking](MessageService/docs)
+
+[Interactive Playground!](MessagePlayground.playground)
 
 ## Future Plans
 
-_Basic test plan and inputs used to test. Please include a description of how you would automate testing._
+This project has a comprehensive test suite that can be setup on a CI server (such as Bitrise). All tests reside in the `MessageService` Swift package.
