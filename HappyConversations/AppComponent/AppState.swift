@@ -9,6 +9,10 @@ final class AppState: ObservableObject {
 //        self.auth = UserAuth.init(user: "hello")
     }
 
+    func login(auth: UserAuth) {
+        self.auth = auth
+    }
+
     func logout() {
         auth = nil
     }

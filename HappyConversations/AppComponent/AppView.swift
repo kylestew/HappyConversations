@@ -2,7 +2,7 @@ import SwiftUI
 
 struct AppView: View {
     @EnvironmentObject var appState: AppState
-    @State var authIsShowing = false
+    @State private var authIsShowing = false
 
     var profileButton: some View {
         Button(action: {
@@ -34,10 +34,10 @@ struct AppView: View {
                     }
                 }
             }
-            .navigationBarTitle(Text("Messages"))
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $authIsShowing) {
-                AuthView()
+                AuthView.init(state: AuthState(appState: appState),
+                              showModal: self.$authIsShowing)
             }
         }
     }

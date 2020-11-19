@@ -4,6 +4,13 @@ import MessageService
 struct MessageListView: View {
     @ObservedObject var state: MessageListState
 
+    var navTitle: String {
+        if let user = state.scopedUser {
+            return user
+        }
+        return "Messages"
+    }
+
     var body: some View {
         switch state.dataState {
         case .loading:
@@ -28,6 +35,7 @@ struct MessageListView: View {
                     MessageListRow(message: message)
                 }
             }
+            .navigationBarTitle(Text(navTitle))
 
         }
     }
@@ -36,7 +44,7 @@ struct MessageListView: View {
 struct MessageListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MessageListView(state: MessageListState.fake(count: 3))
+            MessageListView(state: MessageListState.fake(count: 5))
         }
     }
 }

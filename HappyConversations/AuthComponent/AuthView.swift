@@ -2,13 +2,28 @@ import SwiftUI
 
 struct AuthView: View {
 
-    @EnvironmentObject var appState: AppState
+    @ObservedObject var state: AuthState
+    @Binding var showModal: Bool
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            VStack {
-
+        VStack(alignment: .center) {
+            Text("Welcome")
+                .font(.largeTitle)
+            VStack(alignment: .leading, spacing: 11.0) {
+                Text("Select a username")
+                    .font(.headline)
+                TextField("Username", text: $state.username)
             }
+            .padding(20)
+            .border(Color.black)
+            .padding(60)
+
+            Button("Login".uppercased()) {
+                self.state.login()
+                self.showModal = false
+            }
+            .disabled(state.username.isEmpty)
+            .font(.title)
         }
         .padding()
     }
@@ -16,8 +31,8 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        return AuthView()
-            .environmentObject(AppState())
-            .previewLayout(.fixed(width: 300, height: 120))
+        return AuthView(state: AuthState(appState: AppState()),
+                        showModal: .constant(true))
+                                      
     }
 }
