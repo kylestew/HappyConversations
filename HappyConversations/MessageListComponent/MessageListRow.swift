@@ -11,17 +11,23 @@ struct MessageListRow: View {
                     .resizable()
                     .scaledToFit()
                     .clipShape(Circle())
-                    .frame(width: 50, height: 50)
+                    .padding(.trailing, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
 
                 VStack(alignment: .leading, spacing: 4.0) {
                     Text(message.subject)
-                        .font(.title)
+                        .font(.subheadline)
                         .bold()
-                    Text(message.user)
-                }.padding()
+                    NavigationLink(
+                        destination: MessageListView(state: MessageListState(scopedUser: message.user))
+                    ) {
+                        Text(message.user)
+                            .font(.subheadline)
+                    }
+                }
                 Spacer()
-            }
+            }.frame(height: 50)
             Text(message.message)
+                .font(.callout)
         }.padding()
     }
 }

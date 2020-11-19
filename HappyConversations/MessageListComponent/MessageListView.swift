@@ -9,14 +9,18 @@ struct MessageListView: View {
         case .loading:
             HStack {
                 ProgressView()
+                    .padding(.trailing, 10)
                 Text("Loading...")
+                    .font(.headline)
             }
 
         case .empty:
-            Text("Empty")
+            Text("No Messages")
+                .font(.headline)
 
         case .error(let error):
             Text("Error \(error.localizedDescription)")
+                .font(.headline)
 
         case .successful:
             List {
@@ -31,6 +35,8 @@ struct MessageListView: View {
 
 struct MessageListView_Previews: PreviewProvider {
     static var previews: some View {
-        return MessageListView(state: MessageListState.fake(count: 3))
+        NavigationView {
+            MessageListView(state: MessageListState.fake(count: 3))
+        }
     }
 }
