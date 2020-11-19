@@ -2,7 +2,7 @@ import SwiftUI
 import MessageService
 
 struct MessageListView: View {
-    @ObservedObject var state: MessageListState
+    @StateObject var state: MessageListState
 
     var navTitle: String {
         if let user = state.scopedUser {
@@ -21,14 +21,17 @@ struct MessageListView: View {
                     Text("Loading...")
                         .font(.headline)
                 }
+                Spacer()
 
             case .empty:
                 Text("No Messages")
                     .font(.headline)
+                Spacer()
 
             case .error(let error):
                 Text("Error \(error.localizedDescription)")
                     .font(.headline)
+                Spacer()
 
             case .successful:
                 List {
@@ -39,7 +42,6 @@ struct MessageListView: View {
                 .navigationBarTitle(Text(navTitle))
 
             }
-//            Spacer()
         }
     }
 }
