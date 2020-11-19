@@ -46,7 +46,7 @@ final class MessageListState: ObservableObject {
         dataState = .loading
         messageContainer = nil
 
-        dataTask = MessageService().fetch { [weak self] result in
+        dataTask = MessageService().fetch(username: scopedUser) { [weak self] result in
             guard let self = self else { return }
 
             DispatchQueue.main.async {

@@ -44,8 +44,9 @@ public struct MessageService {
      */
     public func fetch(username: String? = nil, completion: @escaping (Result<MessageResponseData, MessageService.ServiceError>) -> ()) -> URLSessionDataTask {
         var url = baseURL.appendingPathComponent(ENDPOINT_MESSAGES)
-        if let username = username {
-            url.appendPathComponent("/\(username)")
+        if let username = username,
+           let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            url.appendPathComponent("/\(escapedString)")
         }
         return performRequest(url, completion: completion)
     }
