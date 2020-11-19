@@ -20,6 +20,15 @@ final class MessageListState: ObservableObject {
     init(scopedUser: String? = nil) {
         self.scopedUser = scopedUser
         loadData()
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(messageDidPost(_:)),
+                                               name: .MessageDidPost,
+                                               object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     init(messageContainer: MessageContainer) {
@@ -54,7 +63,9 @@ final class MessageListState: ObservableObject {
         }
     }
 
-    // TODO: pull to refresh hook
+    @objc func messageDidPost(_ notification: Notification) {
+        loadData()
+    }
 }
 
 // Allow for other ways to contain messages besides MessageService response

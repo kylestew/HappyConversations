@@ -2,6 +2,10 @@ import Foundation
 import Combine
 import MessageService
 
+extension Notification.Name {
+    static let MessageDidPost = NSNotification.Name("MessageDidPost")
+}
+
 final class PostingState: ObservableObject {
 
     @Published var isPosting = false
@@ -35,12 +39,13 @@ final class PostingState: ObservableObject {
         dataTask = MessageService().post(post) { [weak self] result in
             guard let self = self else { return }
 
-            self.isPosting = false
             DispatchQueue.main.async {
+                self.isPosting = false
+
                 switch result {
                 case .success:
                     self.reset()
-                    // TODO: post global message to reload messages list
+                    NotificationCenter.default.post(name: .MessageDidPost, object: self, userInfo: nil)
 
                 case .failure:
                     self.hasError = true

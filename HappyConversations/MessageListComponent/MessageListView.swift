@@ -12,31 +12,34 @@ struct MessageListView: View {
     }
 
     var body: some View {
-        switch state.dataState {
-        case .loading:
-            HStack {
-                ProgressView()
-                    .padding(.trailing, 10)
-                Text("Loading...")
-                    .font(.headline)
-            }
-
-        case .empty:
-            Text("No Messages")
-                .font(.headline)
-
-        case .error(let error):
-            Text("Error \(error.localizedDescription)")
-                .font(.headline)
-
-        case .successful:
-            List {
-                ForEach(state.messages) { message in
-                    MessageListRow(message: message)
+        VStack {
+            switch state.dataState {
+            case .loading:
+                HStack {
+                    ProgressView()
+                        .padding(.trailing, 10)
+                    Text("Loading...")
+                        .font(.headline)
                 }
-            }
-            .navigationBarTitle(Text(navTitle))
 
+            case .empty:
+                Text("No Messages")
+                    .font(.headline)
+
+            case .error(let error):
+                Text("Error \(error.localizedDescription)")
+                    .font(.headline)
+
+            case .successful:
+                List {
+                    ForEach(state.messages) { message in
+                        MessageListRow(message: message)
+                    }
+                }
+                .navigationBarTitle(Text(navTitle))
+
+            }
+            Spacer()
         }
     }
 }

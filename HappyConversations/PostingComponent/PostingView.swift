@@ -24,6 +24,7 @@ struct PostingView: View {
         }.alert(isPresented: $state.hasError) {
             Alert(title: Text("Uh oh!"), message: Text("Something went wrong"))
         }
+        .border(Color.black)
     }
 }
 
