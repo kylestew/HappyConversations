@@ -24,6 +24,8 @@ final class PostingState: ObservableObject {
 
     private var dataTask: URLSessionDataTask?
 
+    // TRADEOFF: State mutates itself
+    // there has to be a cleaner way!!!
     func post() {
         isPosting = true
 
@@ -38,6 +40,7 @@ final class PostingState: ObservableObject {
                 switch result {
                 case .success:
                     self.reset()
+                    // TODO: post global message to reload messages list
 
                 case .failure:
                     self.hasError = true

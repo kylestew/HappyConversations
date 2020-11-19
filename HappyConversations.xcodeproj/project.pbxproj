@@ -12,6 +12,7 @@
 		FF364B6A25661B5100ACBB2B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6925661B5100ACBB2B /* AppState.swift */; };
 		FF364B6F25661B7800ACBB2B /* PostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B6E25661B7800ACBB2B /* PostingView.swift */; };
 		FF364B7825662A0E00ACBB2B /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF364B7725662A0E00ACBB2B /* UserAuth.swift */; };
+		FF3EB1BB25667E510086F986 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EB1BA25667E510086F986 /* FakeData.swift */; };
 		FF6ECEC525662E1100307AD8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6ECEC425662E1100307AD8 /* AuthView.swift */; };
 		FF6ECECA256638A300307AD8 /* PostingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6ECEC9256638A300307AD8 /* PostingState.swift */; };
 		FFACB9FB256306B900D10BB8 /* HappyConversationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACB9FA256306B900D10BB8 /* HappyConversationsApp.swift */; };
@@ -20,7 +21,7 @@
 		FFACBA02256306BA00D10BB8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFACBA01256306BA00D10BB8 /* Preview Assets.xcassets */; };
 		FFACBA0D256306BA00D10BB8 /* HappyConversationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACBA0C256306BA00D10BB8 /* HappyConversationsTests.swift */; };
 		FFACBA18256306BA00D10BB8 /* HappyConversationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACBA17256306BA00D10BB8 /* HappyConversationsUITests.swift */; };
-		FFDD35292565E73600462FF0 /* MessageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD35282565E73600462FF0 /* MessageListCell.swift */; };
+		FFDD35292565E73600462FF0 /* MessageListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD35282565E73600462FF0 /* MessageListRow.swift */; };
 		FFDD35332565EAA200462FF0 /* MessageService in Frameworks */ = {isa = PBXBuildFile; productRef = FFDD35322565EAA200462FF0 /* MessageService */; };
 		FFDD35382565ECCC00462FF0 /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD35372565ECCC00462FF0 /* MessageListView.swift */; };
 		FFDD35462565EF2A00462FF0 /* MessageListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD35452565EF2A00462FF0 /* MessageListState.swift */; };
@@ -49,6 +50,7 @@
 		FF364B6925661B5100ACBB2B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FF364B6E25661B7800ACBB2B /* PostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingView.swift; sourceTree = "<group>"; };
 		FF364B7725662A0E00ACBB2B /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		FF3EB1BA25667E510086F986 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		FF6ECEC425662E1100307AD8 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		FF6ECEC9256638A300307AD8 /* PostingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingState.swift; sourceTree = "<group>"; };
 		FFACB9F7256306B900D10BB8 /* HappyConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +67,7 @@
 		FFACBA19256306BA00D10BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFACBA28256308B500D10BB8 /* MessageService */ = {isa = PBXFileReference; lastKnownFileType = text; path = MessageService; sourceTree = SOURCE_ROOT; };
 		FFD1A2B62563B443000EF0A9 /* MessagePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MessagePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		FFDD35282565E73600462FF0 /* MessageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListCell.swift; sourceTree = "<group>"; };
+		FFDD35282565E73600462FF0 /* MessageListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListRow.swift; sourceTree = "<group>"; };
 		FFDD35372565ECCC00462FF0 /* MessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
 		FFDD35452565EF2A00462FF0 /* MessageListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 			children = (
 				FF364B57256618D800ACBB2B /* DataState.swift */,
 				FF364B7725662A0E00ACBB2B /* UserAuth.swift */,
+				FF3EB1BA25667E510086F986 /* FakeData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -202,7 +205,7 @@
 			children = (
 				FFDD35452565EF2A00462FF0 /* MessageListState.swift */,
 				FFDD35372565ECCC00462FF0 /* MessageListView.swift */,
-				FFDD35282565E73600462FF0 /* MessageListCell.swift */,
+				FFDD35282565E73600462FF0 /* MessageListRow.swift */,
 			);
 			path = MessageListComponent;
 			sourceTree = "<group>";
@@ -304,6 +307,8 @@
 				Base,
 			);
 			mainGroup = FFACB9EE256306B900D10BB8;
+			packageReferences = (
+			);
 			productRefGroup = FFACB9F8256306B900D10BB8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -347,8 +352,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFDD35382565ECCC00462FF0 /* MessageListView.swift in Sources */,
-				FFDD35292565E73600462FF0 /* MessageListCell.swift in Sources */,
+				FFDD35292565E73600462FF0 /* MessageListRow.swift in Sources */,
 				FF6ECECA256638A300307AD8 /* PostingState.swift in Sources */,
+				FF3EB1BB25667E510086F986 /* FakeData.swift in Sources */,
 				FFDD35462565EF2A00462FF0 /* MessageListState.swift in Sources */,
 				FF364B6A25661B5100ACBB2B /* AppState.swift in Sources */,
 				FF364B58256618D800ACBB2B /* DataState.swift in Sources */,
@@ -516,6 +522,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HappyConversations/Preview Content\"";
+				DEVELOPMENT_TEAM = TD4WU76RKW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HappyConversations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -537,6 +544,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HappyConversations/Preview Content\"";
+				DEVELOPMENT_TEAM = TD4WU76RKW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HappyConversations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -557,6 +565,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TD4WU76RKW;
 				INFOPLIST_FILE = HappyConversationsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -578,6 +587,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TD4WU76RKW;
 				INFOPLIST_FILE = HappyConversationsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -598,6 +608,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TD4WU76RKW;
 				INFOPLIST_FILE = HappyConversationsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,6 +628,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TD4WU76RKW;
 				INFOPLIST_FILE = HappyConversationsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -24,6 +24,15 @@ struct AppView: View {
         NavigationView {
             VStack {
                 MessageListView(state: MessageListState())
+                if let auth = appState.auth {
+                    PostingView(state: PostingState(auth: auth))
+                } else {
+                    Button(action: {
+                        self.authIsShowing.toggle()
+                    }) {
+                        Text("Login to join the conversation")
+                    }
+                }
             }
             .navigationBarTitle(Text("Messages"))
             .navigationBarItems(trailing: profileButton)

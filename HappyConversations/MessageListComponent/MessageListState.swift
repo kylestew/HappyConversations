@@ -10,7 +10,7 @@ final class MessageListState: ObservableObject {
     /// list of messages loaded from the API
     var messages: [MessageService.Message] {
         get {
-            responseData?.messages ?? []
+            messageContainer?.messages ?? []
         }
     }
 
@@ -22,14 +22,20 @@ final class MessageListState: ObservableObject {
         loadData()
     }
 
+    init(messageContainer: MessageContainer) {
+        self.scopedUser = nil
+        self.messageContainer = messageContainer
+        self.dataState = messageContainer.messages.count == 0 ? .empty : .successful
+    }
+
     //MARK: - Data Query and Response
 
-    private var responseData: MessageService.MessageResponseData?
+    private var messageContainer: MessageContainer?
     private var dataTask: URLSessionDataTask?
 
     private func loadData() {
-        self.dataState = .loading
-        self.responseData = nil
+        dataState = .loading
+        messageContainer = nil
 
         dataTask = MessageService().fetch { [weak self] result in
             guard let self = self else { return }
@@ -37,7 +43,7 @@ final class MessageListState: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    self.responseData = response
+                    self.messageContainer = response
                     self.dataState = response.messages.count == 0 ? .empty : .successful
 
                 case .failure(let error):
@@ -50,6 +56,36 @@ final class MessageListState: ObservableObject {
 
     // TODO: pull to refresh hook
 }
+
+// Allow for other ways to contain messages besides MessageService response
+protocol MessageContainer {
+    var messages: [MessageService.Message] { get }
+}
+
+extension MessageService.MessageResponseData : MessageContainer {}
+
+
+#if DEBUG
+
+struct FakeMessages : MessageContainer {
+    let messages: [MessageService.Message]
+
+    init(count: Int) {
+        var messages = [MessageService.Message]()
+        for _ in 0..<count {
+            messages.append( MessageService.Message.fake() )
+        }
+        self.messages = messages
+    }
+}
+
+extension MessageListState {
+    static func fake(count: Int) -> MessageListState {
+        MessageListState.init(messageContainer: FakeMessages(count: count))
+    }
+}
+
+#endif
 
 // needed for SwiftUI listing UI
 extension MessageService.Message: Identifiable {
